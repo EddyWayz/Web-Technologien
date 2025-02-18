@@ -20,7 +20,7 @@
   - [datenschutz.md](doc/datenschutz.md)
   - [erklaerungBF.md](doc/erklaerungBF.md)
  
-  -   - [erklaerungBF.md](html/index.html)
+  - [erklaerungBF.md](html/index.html)
 
 
 # Layout
