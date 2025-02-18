@@ -42,3 +42,6 @@ Für dieses Projekt wird das _Bootstrap Framework_ in der Version 5.3.2 verwende
 
 Der Head-Bereich der template.html enthält folgende Informationen:
 Den Titel der Webseite und folgende Meta-Daten: _charset, viewport, language, author, date, keyword, description, robots, audience, page-topic_ und _revisit-after_. Sowie das stylesheet.
+
+
+Das hier unten ist nur ein Test
