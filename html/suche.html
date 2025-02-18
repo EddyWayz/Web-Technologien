@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <title>Suche</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="language" content="de" />
+  <meta name="author" content="Eduard Wayz" />
+  <meta name="date" content="2024-10-22T14:56:37+02:00" />
+  <meta name="keywords" content="Startseite Web-Technologien AI1" />
+  <meta name="description" content="Das ist die Startseite vom Template" />
+  <meta name="robots" content="index,follow" />
+  <meta name="audience" content="alle" />
+  <meta name="page-topic" content="Web-Technologien AI1" />
+  <meta name="revisit-after" content="7 days" />
+
+  <!-- Bootstrap CSS v5.3.2 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="../images/favicon-32x32.png"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  />
+  <link rel="stylesheet" href="../css/default.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../images/logo.png"
+            alt="Logo der Hochschule"
+            width="150"
+            height="150"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul id="nav_1" class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Über uns
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#einfuerung"
+                    >Einführung</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../html/about.html#nicht-nummerierte-liste"
+                    >Nicht-Nummerierte-Liste</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../html/about.html#nummerierte-liste"
+                    >Nummerierte-Liste</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../html/about.html#zusammenfassung"
+                    >Zusammenfassung</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="veranstaltungen.html">Veranstaltungen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="infothek.html">Infothek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="allerlei.html">Allerlei</a>
+            </li>
+          </ul>
+          <ul id="nav_2" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="suche.html"
+                ><i class="bi bi-search"></i> Suche</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="meinKonto.html"
+                ><i class="bi bi-person-fill"></i> mein Konto</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontakt.html"
+                ><i class="bi bi-envelope-fill"></i> Kontakt</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Google-Suche Section -->
+      <article>
+        <h2>Google-Suche</h2>
+        <form method="get" action="https://www.google.com/search" target="_blank">
+          <input
+            type="text"
+            name="q"
+            class="form-control mb-2"
+            placeholder="Suchbegriff eingeben"
+          />
+          <input type="hidden" name="sitesearch" value="de.wikipedia.org" />
+          <button type="submit" class="btn btn-primary">Absenden</button>
+        </form>
+      </article>
+
+      <!-- Wetter-Section -->
+      <article>
+        <h2>Wetter</h2>
+        <!-- 
+             Hier setzen wir direkt das action-Attribut auf das WetterOnline-Widget
+             und leiten das Ergebnis per target ins IFrame (name="weatherFrame").
+        -->
+        <form
+          method="get"
+          action="https://api.wetteronline.de/wetterwidget"
+          target="weatherFrame"
+        >
+          <div class="mb-3">
+            <label for="ort" class="form-label">Ort:</label>
+            <select id="ort" name="gid" class="form-select">
+              <option value="10382" selected>Berlin</option>
+              <option value="68163">Mannheim</option>
+              <option value="77971">Kippenheim</option>
+              <option value="77933">Lahr</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="sprache" class="form-label">Sprache:</label>
+            <select id="sprache" name="lang" class="form-select">
+              <option value="de" selected>Deutsch</option>
+              <option value="it">Italienisch</option>
+              <!-- Falls gewünscht weitere Sprachen ergänzen -->
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="format" class="form-label">Format:</label>
+            <select id="format" name="modeid" class="form-select">
+              <option value="CW2" selected>300 x 100 (Aktuell)</option>
+              <option value="CW3">300 x 200 (Aktuell)</option>
+              <option value="CW4">300 x 255 (Heute)</option>
+              <option value="CW5">300 x 310 (2 Tage)</option>
+              <option value="CW6">300 x 365 (3 Tage)</option>
+            </select>
+          </div>
+
+          <!-- Button zum Abschicken des Formulars -->
+          <button type="submit" class="btn btn-success mt-3">Anzeigen</button>
+        </form>
+
+        <!-- Das Ergebnis landet im IFrame (name="weatherFrame") -->
+        <div class="mt-4">
+          <h3>Vorschau</h3>
+          <iframe
+            name="weatherFrame"
+            width="300"
+            height="200"
+            style="border: 1px solid transparent;"
+          >
+          </iframe>
+        </div>
+      </article>
+    </main>
+
+    <footer class="mt-5">
+      <nav id="nav_3">
+        <span>&copy; 2024</span>
+        <span>|</span>
+        <a href="../html/impressum.html">Impressum</a>
+        <span>|</span>
+        <a href="../html/datenschutz.html">Datenschutz</a>
+        <span>|</span>
+        <a href="../html/erklaerungBF.html"
+          >Erklärung zur Barrierefreiheit</a
+        >
+      </nav>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

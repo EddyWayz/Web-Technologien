@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Startseite</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="language" content="de" />
+    <meta name="author" content="Eduard Wayz" />
+    <meta name="date" content="2024-10-22T14:56:37+02:00" />
+    <meta name="keywords" content="Startseite Web-Technologien AI1" />
+    <meta name="description" content="Das ist die Startseite vom Template" />
+    <meta name="robots" content="index,follow" />
+    <meta name="audience" content="alle" />
+    <meta name="page-topic" content="Web-Technologien AI1" />
+    <meta name="revisit-after" content="7 days" />
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-32x32.png">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="../images/logo.png" alt="Logo der Hochschule" width="150" height="150" /></a>
+
+                <!--in diesem HTML-Element soll das Logo als Bild-Element integriert werden-->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul id="nav_1" class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Über uns</a>
+                            <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item" href="../html/about.html#einfuerung">Einführung</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="../html/about.html#nicht-nummerierte-liste">Nicht-Nummerierte-Liste</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="../html/about.html#nummerierte-liste">Nummerierte-Liste</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="../html/about.html#zusammenfassung">Zusammenfassung</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="veranstaltungen.html">Veranstaltungen</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="infothek.html">Infothek</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="allerlei.html">Allerlei</a>
+                        </li>
+                    </ul>
+                    <ul id="nav_2" class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="suche.html"><i class="bi bi-search"></i> Suche</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="meinKonto.html"><i class="bi bi-person-fill"></i> mein Konto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kontakt.html"><i class="bi bi-envelope-fill"></i> Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div id="map"></div>
+
+            <script>
+                var map = L.map('map').setView([48.464, 7.941], 14);
+
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                var markers = {
+                    "Hochschule Offenburg": L.marker([48.4691, 7.9417]).addTo(map)
+                        .bindTooltip('<a href="https://www.hs-offenburg.de" target="_blank">Hochschule Offenburg</a>', { permanent: true, direction: 'top', interactive: true }),
+                    "Messe Offenburg": L.marker([48.46389, 7.93404]).addTo(map)
+                        .bindTooltip('<a href="https://www.messe-offenburg.de" target="_blank">Messe Offenburg</a>', { permanent: true, direction: 'top', interactive: true }),
+                    "DJK Offenburg Sportplatz": L.marker([48.45903, 7.94829]).addTo(map)
+                        .bindTooltip('<a href="https://www.djk-offenburg.de" target="_blank">DJK Offenburg Sportplatz</a>', { permanent: true, direction: 'top', interactive: true }),
+                    "Gifiz-See Offenburg": L.marker([48.45288, 7.93776]).addTo(map)
+                        .bindTooltip('<a href="https://www.offenburg.de/html/media/gifiz.html" target="_blank">Gifiz-See Offenburg</a>', { permanent: true, direction: 'top', interactive: true }),
+                    "Karl-Heitz-Stadion Offenburg": L.marker([48.46187, 7.94048]).addTo(map)
+                        .bindTooltip('<a href="https://www.offenburg.de/html/media/stadion.html" target="_blank">Karl-Heitz-Stadion Offenburg</a>', { permanent: true, direction: 'top', interactive: true })
+                };
+
+                function centerMap(name) {
+                    var marker = markers[name];
+                    if (marker) {
+                        map.setView(marker.getLatLng(), 16);
+                        marker.openTooltip();
+                    }
+                }
+            </script>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>URL</th>
+                        <th>Geo-Koordinaten</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="centerMap('Hochschule Offenburg')">
+                        <td>Hochschule Offenburg</td>
+                        <td><a href="https://www.hs-offenburg.de" target="_blank">https://www.hs-offenburg.de</a></td>
+                        <td>48.4691, 7.9417</td>
+                    </tr>
+                    <tr onclick="centerMap('Messe Offenburg')">
+                        <td>Messe Offenburg</td>
+                        <td><a href="https://www.messe-offenburg.de" target="_blank">https://www.messe-offenburg.de</a>
+                        </td>
+                        <td>48.46389, 7.93404</td>
+                    </tr>
+                    <tr onclick="centerMap('DJK Offenburg Sportplatz')">
+                        <td>DJK Offenburg Sportplatz</td>
+                        <td><a href="https://www.djk-offenburg.de" target="_blank">https://www.djk-offenburg.de</a></td>
+                        <td>48.45903, 7.94829</td>
+                    </tr>
+                    <tr onclick="centerMap('Gifiz-See Offenburg')">
+                        <td>Gifiz-See Offenburg</td>
+                        <td><a href="https://www.offenburg.de/html/media/gifiz.html"
+                                target="_blank">https://www.offenburg.de/html/media/gifiz.html</a></td>
+                        <td>48.45288, 7.93776</td>
+                    </tr>
+                    <tr onclick="centerMap('Karl-Heitz-Stadion Offenburg')">
+                        <td>Karl-Heitz-Stadion Offenburg</td>
+                        <td><a href="https://www.offenburg.de/html/media/stadion.html"
+                                target="_blank">https://www.offenburg.de/html/media/stadion.html</a></td>
+                        <td>48.46187, 7.94048</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+        <footer>
+            <!-- Inhalte nicht als Listen-Elemente und nicht der Klasse nav-link zuordnen (Achtung bei Copy&Paste), nur Aneinanderreihung von Link-Elementen -->
+            <nav id="nav_3">
+                <span>&copy;2024 </span>
+                <span>|</span>
+                <a href="../html/impressum.html">Impressum</a>
+                <span>|</span>
+                <a href="../html/datenschutz.html">Datenschutz</a>
+                <span>|</span>
+                <a href="../html/erklaerungBF.html">Erklärung zur Barrierefreiheit</a>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

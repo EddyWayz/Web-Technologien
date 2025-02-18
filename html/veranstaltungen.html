@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <title>Veranstaltungen</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="language" content="de" />
+  <meta name="author" content="Eduard Wayz" />
+  <meta name="date" content="2024-10-22T14:56:37+02:00" />
+  <meta name="keywords" content="Startseite Web-Technologien AI1" />
+  <meta name="description" content="Das ist die Startseite vom Template" />
+  <meta name="robots" content="index,follow" />
+  <meta name="audience" content="alle" />
+  <meta name="page-topic" content="Web-Technologien AI1" />
+  <meta name="revisit-after" content="7 days" />
+  <!-- Bootstrap CSS v5.3.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-32x32.png">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/default.css" />
+  <link rel="stylesheet" href="../css/veranstaltungen.css" />
+  <script src="../js/veranstaltungen.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="../images/logo.png" alt="Logo der Hochschule" width="150" height="150" /></a>
+
+        <!--in diesem HTML-Element soll das Logo als Bild-Element integriert werden-->
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul id="nav_1" class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Über uns</a>
+              <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#einfuerung">Einführung</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#nicht-nummerierte-liste">Nicht-Nummerierte-Liste</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#nummerierte-liste">Nummerierte-Liste</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#zusammenfassung">Zusammenfassung</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="veranstaltungen.html">Veranstaltungen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="infothek.html">Infothek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="allerlei.html">Allerlei</a>
+            </li>
+          </ul>
+          <ul id="nav_2" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="suche.html"><i class="bi bi-search"></i> Suche</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="meinKonto.html"><i class="bi bi-person-fill"></i> mein Konto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontakt.html"><i class="bi bi-envelope-fill"></i> Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <p id="table"></p>
+      <form action="https://wiki.selfhtml.org/extensions/Selfhtml/show-request-params.php"
+        onsubmit="return pruefegueltigkeitsdauer()">
+        <div>
+          <label for="veranstaltungen" class="form-label">Veranstaltungen: </label>
+          <select id="veranstaltungen" name="veranstaltung" size="3" multiple="multiple" class="form-control" required
+            autofocus tabindex="1">
+            <option selected="selected">Lass uns in die Pommes Bude</option>
+            <option>Der neue Mocktail-test: ganz exklusiv</option>
+            <option>Die ausgefallene Web-Tech Vorlesung</option>
+          </select>
+        </div>
+        <br>
+
+        <div>
+          <label for="zeitraumVon" class="form-label">Zeitraum (von)*:</label>
+          <input type="datetime-local" id="zeitraumVon" name="zeitraumVon" required tabindex="3" onblur="checkDate()">
+          <!--autocomplete doesn't make sense here-->
+          <br>
+          <label for="zeitraumBis" class="form-label">Zeitraum (bis)*:</label>
+
+          <input type="datetime-local" id="zeitraumBis" name="zeitraumBis" required tabindex="4" onblur="checkDate()">
+          <!--autocomplete doesn't make sense here-->
+
+        </div>
+        <br>
+        <div>
+          <label for="spende" class="form-label">Zusatzspende:*</label>
+          <br>
+          <input type="number" id="spende" name="zusatzspende" required tabindex="5">
+          <!--autocomplete doesn't make sense here-->
+
+        </div>
+        <div>
+          <br>
+          <p>Verweisintensiver Saalplan:</p>
+          <img src="../images/saalplan.jpeg" usemap="#image-map" alt="Verweisintensives Bild vom Saal" >
+
+          <map name="image-map">
+            <area alt="Platz 55" title="Platz 55" href="../html/veranstaltungen.html#sitzplatz"
+              coords="603,1883,638,1921" shape="rect" onclick="sitzplatz(55)">
+            <area alt="Platz 56" title="Platz 56" href="../html/veranstaltungen.html#sitzplatz"
+              coords="645,1885,688,1918" shape="rect" onclick="sitzplatz(56)">
+            <area alt="Platz 57" title="Platz 57" href="../html/veranstaltungen.html#sitzplatz"
+              coords="697,1888,727,1920" shape="rect" onclick="sitzplatz(57)">
+            <area alt="Platz 58" title="Platz 58" href="../html/veranstaltungen.html#sitzplatz"
+              coords="742,1886,777,1920" shape="rect" onclick="sitzplatz(58)">
+            <area alt="Platz 59" title="Platz 59" href="../html/veranstaltungen.html#sitzplatz"
+              coords="792,1887,822,1920" shape="rect" onclick="sitzplatz(59)">
+            <area alt="Platz 60" title="Platz 60" href="../html/veranstaltungen.html#sitzplatz"
+              coords="834,1884,869,1918" shape="rect" onclick="sitzplatz(60)">
+          </map>
+        </div>
+        <br>
+        <div>
+          <label for="sitzplatz" class="form-label">Sitzplatz: </label>
+          <input type="text" id="sitzplatz" name="sitzplatz" tabindex="5">
+          <!--readonly wieder rausgemacht in Aufgabenblatt 10-->
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sichtModal">
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="sichtModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Ihre Sicht: </h1>
+                </div>
+                <div class="modal-body">
+                  <img src="../images/Saal-Metro-frontal.jpg" alt="Bild vom Saal" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="resetSitzplatzAuswahl()">Freigeben</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <label for="rechnung" class="form-label">Bezahloption:</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="bezahloption" id="rechnung" value="rechnung" checked
+              onclick="bezahlBereich()">
+            <label class="form-check-label" for="rechnung">
+              Rechnung
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="bezahloption" id="visa" value="visa"
+              onclick="bezahlBereich()">
+            <label class="form-check-label" for="visa">
+              Visa
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="bezahloption" id="mastercard" value="mastercard"
+              onclick="bezahlBereich()">
+            <label class="form-check-label" for="mastercard">
+              MasterCard
+            </label>
+          </div>
+        </div>
+        <div>
+          <br>
+          <fieldset id="rechnungContainer">
+            <div class="mb-3">
+              <label for="rechnungsadresseGleichLieferadresse">Rechnungsadresse:</label>
+              <div>
+                <input class="form-check-input" type="radio" value="rechnungsadresseGleichLieferadresse"
+                  name="Rechnungsadresse" id="rechnungsadresseGleichLieferadresse" checked tabindex="6">
+                <label class="form-check-label" for="rechnungsadresseGleichLieferadresse">Rechnungsadresse gleich
+                  Lieferadresse</label>
+              </div>
+              <div>
+                <input class="form-check-input" type="radio" value="abweichendeRechnungsempfaenger"
+                  name="Rechnungsadresse" id="abweichendeRechnungsempfaenger">
+                <label class="form-check-label" for="abweichendeRechnungsempfaenger">Abweichender
+                  Rechnungsadresse</label>
+              </div>
+            </div>
+            <fieldset>
+              <div class="mb-3">
+                <label for="herr">Anrede: </label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="anrede" id="herr" value="MC" checked tabindex="7">
+                  <label class="form-check-label" for="herr">
+                    Herr
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="anrede" id="frau" value="VC">
+                  <label class="form-check-label" for="frau">
+                    Frau
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="vorname" class="form-label">Vorname*</label>
+                <input type="text" class="form-control" id="vorname" name="vorname" maxlength="20" required tabindex="8"
+                  autocomplete="given-name">
+              </div>
+              <div class="mb-3">
+                <label for="nachname" class="form-label">Nachname*</label>
+                <input type="text" class="form-control" id="nachname" name="nachname" maxlength="40" required
+                  tabindex="9" autocomplete="family-name">
+              </div>
+              <div class="mb-3">
+                <label for="strasseUndHausnummer" class="form-label">Straße und Hausnummer*</label>
+                <input type="text" class="form-control" id="strasseUndHausnummer" name="strasseUndHausnummer"
+                  maxlength="40" required tabindex="10" autocomplete="on">
+              </div>
+              <div class="mb-3">
+                <label for="postleitzahl" class="form-label">Postleitzahl*</label>
+                <input type="text" class="form-control" id="postleitzahl" name="postleitzahl" pattern="[0-9]{5}"
+                  required tabindex="11" autocomplete="postal-code">
+              </div>
+              <div class="mb-3">
+                <label for="ort" class="form-label">Ort: </label>
+                <input type="text" list="ortlist" id="ort" name="ort" class="form-control" tabindex="12"
+                  autocomplete="country-name">
+                <datalist id="ortlist">
+                  <option value="Kippenheim"></option>
+                  <option value="Offenburg"></option>
+                  <option value="Freiburg"></option>
+                  <option value="Ettenheim"></option>
+                  <option value="Orschweier"></option>
+                </datalist>
+              </div>
+              <div class="mb-3">
+                <label for="land" class="form-label">Land: </label>
+                <select id="land" name="land" size="1" class="form-control" tabindex="13" autocomplete="country">
+                  <option selected="selected">Deutschland</option>
+                  <option>England</option>
+                  <option>Oesterreich</option>
+                  <option>Schweiz</option>
+                  <option>Frankreich</option>
+                </select>
+              </div>
+            </fieldset>
+          </fieldset>
+          <fieldset id="kartenzahlungContainer">
+            <div class="mb-3">
+              <label for="nameKarteninhaber" class="form-label">Name des Karteninhabers:*</label>
+              <input type="text" id="nameKarteninhaber" name="nameKarteninhaber" maxlength="100" class="form-control"
+                required autocomplete="cc-name">
+            </div>
+            <div class="mb-3">
+              <label for="kartennummer" class="form-label">Kartennummer:* <span id="kartennummerIcon"></span></label>
+              <input type="text" id="kartennummer" name="kartennummer" class="form-control" required
+                autocomplete="cc-number">
+            </div>
+            <div class="mb-3">
+              <label for="pruefziffer" class="form-label">Pruefziffer:* <span id="pruefzifferIcon"></span></label>
+              <input type="text" id="pruefziffer" name="pruefziffer" pattern="[0-9]{3}" class="form-control" required
+                onblur="check()" autocomplete="cc-csc">
+            </div>
+            <div class="mb-3">
+              <label for="monat" class="form-label">Monat:*</label>
+              <input type="number" id="monat" name="monat" min="1" max="12" step="1" class="form-control" required
+                autocomplete="cc-exp-month">
+            </div>
+
+            <div class="mb-3">
+              <label for="jahr" class="form-label">Jahr ab 2024:*</label>
+              <input type="number" id="jahr" name="jahr" min="2021" max="2029" step="1" class="form-control" required
+                autocomplete="cc-exp-year">
+            </div>
+          </fieldset>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" tabindex="15">Bestellen</button>
+          <button type="reset" class="btn btn-secondary" tabindex="16">Zurücksetzen</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <!-- Inhalte nicht als Listen-Elemente und nicht der Klasse nav-link zuordnen (Achtung bei Copy&Paste), nur Aneinanderreihung von Link-Elementen -->
+      <nav id="nav_3">
+        <span>&copy;2024 </span>
+        <span>|</span>
+        <a href="../html/impressum.html">Impressum</a>
+        <span>|</span>
+        <a href="../html/datenschutz.html">Datenschutz</a>
+        <span>|</span>
+        <a href="../html/erklaerungBF.html">Erklärung zur Barrierefreiheit</a>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

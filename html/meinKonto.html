@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <title>Mein Konto</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="language" content="de" />
+  <meta name="author" content="Eduard Wayz" />
+  <meta name="date" content="2024-10-22T14:56:37+02:00" />
+  <meta name="keywords" content="Startseite Web-Technologien AI1" />
+  <meta name="description" content="Das ist die Startseite vom Template" />
+  <meta name="robots" content="index,follow" />
+  <meta name="audience" content="alle" />
+  <meta name="page-topic" content="Web-Technologien AI1" />
+  <meta name="revisit-after" content="7 days" />
+  <!-- Bootstrap CSS v5.3.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-32x32.png">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/default.css" />
+  <script src="../js/registrierung.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="../images/logo.png" alt="Logo der Hochschule" width="150" height="150" /></a>
+
+        <!--in diesem HTML-Element soll das Logo als Bild-Element integriert werden-->
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul id="nav_1" class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Über uns</a>
+              <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#einfuerung">Einführung</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#nicht-nummerierte-liste">Nicht-Nummerierte-Liste</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#nummerierte-liste">Nummerierte-Liste</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../html/about.html#zusammenfassung">Zusammenfassung</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aktuelles.html">Aktuelles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="veranstaltungen.html">Veranstaltungen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="infothek.html">Infothek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="allerlei.html">Allerlei</a>
+            </li>
+          </ul>
+          <ul id="nav_2" class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="suche.html"><i class="bi bi-search"></i> Suche</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="meinKonto.html"><i class="bi bi-person-fill"></i> mein Konto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontakt.html"><i class="bi bi-envelope-fill"></i> Kontakt</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container mt-5">
+        <div>
+          <!-- Login Card -->
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                Login
+              </div>
+              <div class="card-body">
+                <form action="https://wiki.selfhtml.org/extensions/Selfhtml/show-request-params.php" method="post">
+                  <div class="mb-3">
+                    <label for="loginKontonummer" class="form-label">Kontonummer *</label>
+                    <input type="text" class="form-control" id="loginKontonummer" name="kontonummer" autofocus required tabindex="1" autocomplete="cc-number">
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Passwort *</label>
+                    <input type="password" class="form-control" id="loginPassword" name="password" tabindex="2" required autocomplete="off">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Registrierung Card -->
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                Registration
+              </div>
+              <div class="card-body">
+                <form action="https://wiki.selfhtml.org/extensions/Selfhtml/show-request-params.php" method="post">
+                  <label for="titelID">Wähle deinen Titel: </label>
+                  <input type="text" list="titelList" id="titelID" name="titel" tabindex="3" autocomplete="organization-title">
+                  <datalist id="titelList">
+                    <option value="Dr."></option>
+                    <option value="Prof."></option>
+                    <option value="Prof. Dr."></option>
+                    <option value="Dr. med. "></option>
+                    <option value="Dr. med. dent."></option>
+                  </datalist>
+
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="credit" id="herr" value="MC" checked tabindex="4">
+                      <label class="form-check-label" for="herr">
+                        Herr
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="credit" id="frau" value="VC">
+                      <label class="form-check-label" for="frau">
+                        Frau
+                      </label>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="vorname" class="form-label">Vorname *</label>
+                    <input type="text" class="form-control" id="vorname" name="vorname" maxlength="20" required tabindex="5" autocomplete="given-name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="nachname" class="form-label">Nachname *</label>
+                    <input type="text" class="form-control" id="nachname" name="nachname" maxlength="40" required tabindex="6" autocomplete="family-name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="straseUndHausnummer" class="form-label">Straße und Hausnummer *</label>
+                    <input type="text" class="form-control" id="straseUndHausnummer" name="straseUndsHausnummer"
+                      maxlength="40" required tabindex="7" autocomplete="on">
+                  </div>
+                  <div class="mb-3">
+                    <label for="postleitzahl" class="form-label">Postleitzahl *</label>
+                    <input type="text" class="form-control" id="postleitzahl" name="postleitzahl" pattern="[0-9]{5}"
+                      required tabindex="8" autocomplete="postal-code">
+                  </div>
+                  <div>
+                    <label for="ort" class="form-label">Ort: </label>
+                    <input type="text" list="ortlist" id="ort" name="ort" class="form-control" tabindex="9" autocomplete="country-name">
+                    <datalist id="ortlist">
+                      <option value="Kippenheim"></option>
+                      <option value="Offenburg"></option>
+                      <option value="Freiburg"></option>
+                      <option value="Ettenheim"></option>
+                      <option value="Orschweier"></option>
+                    </datalist>
+                  </div>
+                  <div>
+                    <label for="land" class="form-label">Land: </label>
+                    <select id="land" name="land" size="1" class="form-control" tabindex="10" autocomplete="country">
+                      <option selected="selected">Deutschland</option>
+                      <option>England</option>
+                      <option>Oesterreich</option>
+                      <option>Schweiz</option>
+                      <option>Frankreich</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="email" class="form-label">Email-Adresse *</label>
+                    <input type="text" class="form-control" id="email" name="email" required tabindex="11" autocomplete="email">
+                  </div>
+                  <div>
+                    <label for="telefon" class="form-label">Telefonnummer</label>
+                    <input type="text" class="form-control" id="telefon" name="telefon" tabindex="12" autocomplete="tel">
+                  </div>
+                  <div>
+                    <label for="date" class="form-label">Datum</label>
+                    <input type="date" class="form-control" id="date" name="datum" tabindex="13">
+                  </div>
+                  <div>
+                    <label for="password" class="form-label">Passwort * <span id="passwordIcon1"></span></label>
+                    <input type="password" class="form-control" id="password" name="password" maxlength="20"
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{0,}" required tabindex="14" onblur="checkPasswords()" autocomplete="off">
+                  </div>
+                  <div>
+                    <label for="password2" class="form-label">Passwort bestaetigen * <span id="passwordIcon2"></span></label>
+                    <input type="password" class="form-control" id="password2" name="password2" maxlength="20"
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{0,}" required tabindex="15" onblur="checkPasswords()" autocomplete="off">
+                  </div>
+                  
+                  <div>
+                    <input type="checkbox" id="agb" name="agb" value="agb_zugestimmt" required tabindex="16" onclick="disableAbsenden()">
+                    <label for="agb"> Ich stimme des AGBs zu *</label><br>
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="absendenButton" tabindex="17" disabled>Absenden</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- Inhalte nicht als Listen-Elemente und nicht der Klasse nav-link zuordnen (Achtung bei Copy&Paste), nur Aneinanderreihung von Link-Elementen -->
+      <nav id="nav_3">
+        <span>&copy;2024 </span>
+        <span>|</span>
+        <a href="../html/impressum.html">Impressum</a>
+        <span>|</span>
+        <a href="../html/datenschutz.html">Datenschutz</a>
+        <span>|</span>
+        <a href="../html/erklaerungBF.html">Erklärung zur Barrierefreiheit</a>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

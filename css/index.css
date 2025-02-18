@@ -1,0 +1,166 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+    }
+
+.flexbox_container_media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flexbox_container_bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+}
+
+.video-Abteil { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.right_side {
+    margin-left: 7px;
+}
+.content_div {
+    position: relative;
+    width: 50%;
+}
+
+.content_div video {
+    width: 100%;
+    position: relative;
+}
+
+#link_zum_video {
+    position: absolute;
+    z-index: 1;
+    left: 4px;
+}
+.content_div img {
+    width: 100%;
+}
+
+.content_div figcaption {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    color: aqua;
+}
+
+.social-buttons-section {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.social_button {
+    width: 100%;
+    color: white;
+    border: 0px;
+    border-radius: 6px;
+}
+
+.btn-twitter-x {
+    background-color: black;
+}
+
+.btn-google {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: red;
+}
+
+.btn-facebook {
+    background-color: blue;
+}
+
+.star_checked {
+    color: yellow;
+}
+
+article {
+    padding: 3%;
+    border: 2px;
+    border-color: blue;
+    border-radius: 4px;
+    border-style: solid;
+    margin: 2%;
+    background-color: lightblue;
+    font-family: myFirstFont;
+    text-align: justify
+}
+
+.right_side audio {
+    margin-bottom: 10px;
+}
+
+#link_to_lastuve {
+    padding: 2%;
+    background-color: lightblue;
+    border: 2px;
+    border-style: solid;
+    border-color: blue;
+}
+
+.list_items {
+    list-style-image: url(../images/bike.png);
+}
+
+
+@keyframes header-color {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  }
+  
+.navbar {
+    background-color: red;
+    animation-name: header-color;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+}
+
+@keyframes logo-move {
+    0% {left:0vb;}
+    50% {left: 100vb; transform: rotate(180deg);}
+    100% {left:0vb; transform: rotate(360deg);}
+}
+
+#logo-id {
+    position:relative;
+    animation: logo-move 7s;
+}
+ 
+@keyframes logo-grow {
+    from{scale:1;}
+    to{scale:3;}
+}
+
+#logo-id:hover {
+    animation: logo-grow;
+    animation-duration: 25s;
+}
+
+
+@media print {
+    *, article{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: white;
+    }
+    
+    #video-id {
+        visibility: hidden;
+        width: 0%;
+    }
+    .content_div{
+        width: 100%;
+    }
+
+    .right_side {
+        visibility: hidden;
+        width: 0%;
+    }
+    .navbar {
+        background-color: white !important;
+    }
+}

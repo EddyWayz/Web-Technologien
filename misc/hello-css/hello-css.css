@@ -1,0 +1,94 @@
+.user_side {
+    background-image: url("./images/backsteinWand.jpg");
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+h1 {
+    margin-top: 0px;
+}
+
+.user_quotelist ul {
+    margin-bottom: 0px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.user_boxlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: bisque;
+    border-radius: 20px;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+}
+
+.user_box {
+    margin: 10px;
+}
+
+.user_boxlist .user_blue .user_image img {
+    background-color: blue;
+    border: 3px solid red;
+}
+
+.user_boxlist .user_yellow .user_image img {
+    background-color: yellow;
+    border: 3px solid red;
+}
+
+.user_boxlist .user_green .user_image img {
+    background-color: green;
+    border: 3px solid red;
+}
+
+.user_boxlist .user_red .user_image img {
+    background-color: red;
+    border: 3px solid red;
+}
+
+.user_boxlist .user_pink .user_image img {
+    background-color: pink;
+    border: 3px solid red;
+}
+
+.user_boxlist .user_empty .user_no_image {
+    background-color: white;
+    border: 3px solid red;
+}
+
+.user_boxlist .user_image img,
+.user_boxlist .user_no_image {
+    width: 180px;
+    /* Set your desired width */
+    height: 180px;
+    /* Set your desired height */
+}
+
+.user_quotelist {
+    margin-bottom: 10px;
+}
+
+.user_quotelist .user_quote .user_quote_content {
+    font-style: italic;
+    font-size: large;
+}
+
+.user_quotelist .user_quote .user_quote_date {
+    font-size: small;
+}
+
+.user_quotelist .user_quote .user_quote_tag {
+    font-weight: bold;
+}
+
+.user_quotelist .user_quote .user_quote_comments:hover {
+    color: lightblue;
+}
